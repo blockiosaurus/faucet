@@ -1,0 +1,163 @@
+{
+  "version": "0.1.0",
+  "name": "mpl_project_name_program",
+  "instructions": [
+    {
+      "name": "Create",
+      "accounts": [
+        {
+          "name": "address",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The address of the new account"
+          ]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The authority of the new account"
+          ]
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The account paying for the storage fees"
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The system program"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "createArgs",
+          "type": {
+            "defined": "CreateArgs"
+          }
+        }
+      ],
+      "discriminant": {
+        "type": "u8",
+        "value": 0
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "name": "MyAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "discriminator",
+            "type": {
+              "array": [
+                "u8",
+                8
+              ]
+            }
+          },
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "data",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MyPdaAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "discriminator",
+            "type": {
+              "array": [
+                "u8",
+                8
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "padding",
+            "type": {
+              "array": [
+                "u8",
+                7
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "CreateArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "arg1",
+            "type": "u16"
+          },
+          {
+            "name": "arg2",
+            "type": "u32"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 0,
+      "name": "InvalidSystemProgram",
+      "msg": "Invalid System Program"
+    },
+    {
+      "code": 1,
+      "name": "DeserializationError",
+      "msg": "Error deserializing account"
+    },
+    {
+      "code": 2,
+      "name": "SerializationError",
+      "msg": "Error serializing account"
+    },
+    {
+      "code": 3,
+      "name": "InvalidInstruction",
+      "msg": "Invalid instruction"
+    }
+  ],
+  "metadata": {
+    "origin": "shank",
+    "address": "MyProgram1111111111111111111111111111111111",
+    "binaryVersion": "0.4.3-alpha.1",
+    "libVersion": "0.4.3-alpha.1"
+  }
+}

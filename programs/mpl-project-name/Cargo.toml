@@ -1,0 +1,21 @@
+[package]
+edition = "2021"
+license-file = "../../LICENSE"
+name = "mpl-project-name-program"
+publish = false
+readme = "./README.md"
+version = "0.1.0"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+borsh = "^0.10"
+bytemuck = { version = "1.21.0", features = ["derive"] }
+num-derive = "^0.4"
+num-traits = "^0.2"
+pinocchio = "0.7.1"
+pinocchio-pubkey = "0.2.2"
+pinocchio-system = "0.2.1"
+shank = { version = "0.4.3-alpha.1", features = ["pinocchio"] }
+thiserror = "^1.0"
